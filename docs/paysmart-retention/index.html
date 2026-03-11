@@ -32,6 +32,8 @@
       --border-light: #f1f5f9;
       --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
       --font-heading: 'Space Grotesk', sans-serif;
+      --wurf-dark: #1a1a1a;
+      --wurf-yellow: #f0d648;
     }
 
     body {
@@ -286,8 +288,8 @@
     }
     .chat-input::placeholder { color: var(--text-muted); }
     .chat-send {
-      width: 34px; height: 34px; border: none; background: var(--primary);
-      color: white; border-radius: 10px; cursor: default;
+      width: 34px; height: 34px; border: none; background: var(--wurf-yellow);
+      color: var(--wurf-dark); border-radius: 10px; cursor: default;
       display: flex; align-items: center; justify-content: center;
     }
 
@@ -296,7 +298,7 @@
     .message.user-msg { justify-content: flex-end; }
     .bot-avatar-sm { width: 26px; height: 26px; border-radius: 7px; overflow: hidden; flex-shrink: 0; }
     .msg-bubble { max-width: 85%; padding: 10px 14px; border-radius: 14px; font-size: 13px; line-height: 1.55; }
-    .user-bubble { background: var(--primary); color: white; border-bottom-right-radius: 4px; }
+    .user-bubble { background: var(--wurf-dark); color: white; border-bottom-right-radius: 4px; }
     .bot-bubble { background: white; color: var(--text-primary); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
     .typing-cursor {
       display: inline-block; width: 2px; height: 1em;
@@ -366,7 +368,7 @@
     /* ── Outro ── */
     .outro-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(135deg, #1a1a2e 0%, #164e63 100%);
+      background: #ffffff;
       display: flex; align-items: center; justify-content: center;
       z-index: 20; opacity: 0; pointer-events: none;
     }
@@ -374,9 +376,10 @@
     .outro-content svg { margin-bottom: 20px; }
     .outro-title {
       font-family: var(--font-heading); font-size: 48px; font-weight: 700;
-      color: white; letter-spacing: -0.03em; margin-bottom: 12px;
+      color: #1a1a1a; letter-spacing: -0.03em; margin-bottom: 12px;
+      text-shadow: 3px 3px 0 #f0d648;
     }
-    .outro-tagline { font-size: 18px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+    .outro-tagline { font-size: 18px; color: rgba(0,0,0,0.4); line-height: 1.6; }
   </style>
 </head>
 <body>
@@ -528,18 +531,14 @@
         <div class="chat-input-area">
           <input type="text" class="chat-input" placeholder="Ask about your merchants..." disabled>
           <button class="chat-send">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 14V2M3 7l5-5 5 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 14V2M3 7l5-5 5 5" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
       </div>
 
       <div class="outro-overlay" id="outroOverlay">
         <div class="outro-content">
-          <svg width="72" height="72" viewBox="0 0 72 72" fill="none">
-            <rect width="72" height="72" rx="18" fill="#06b6d4"/>
-            <path d="M16 25l10 22 10-18 10 18 10-22" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <div class="outro-title">Wurf</div>
+          <div class="outro-title">WURF</div>
           <div class="outro-tagline">External context via a single API.<br>Built for payment processors.</div>
         </div>
       </div>
@@ -548,8 +547,8 @@
 
 <script>
 (function() {
-  const WURF_SM = '<svg width="26" height="26" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#06b6d4"/><path d="M6 10l4 9 4-7 4 7 4-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const WURF_MD = '<svg width="32" height="32" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#06b6d4"/><path d="M6 10l4 9 4-7 4 7 4-9" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const WURF_SM = '<svg width="26" height="26" viewBox="0 0 28 28"><rect x=".5" y=".5" width="27" height="27" rx="7.5" fill="#fff" stroke="#e2e8f0"/><text x="15.5" y="20.5" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#f0d648">W</text><text x="14" y="19" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#1a1a1a">W</text></svg>';
+  const WURF_MD = '<svg width="32" height="32" viewBox="0 0 28 28"><rect x=".5" y=".5" width="27" height="27" rx="7.5" fill="#fff" stroke="#e2e8f0"/><text x="15.5" y="20.5" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#f0d648">W</text><text x="14" y="19" font-family="Space Grotesk,sans-serif" font-weight="700" font-size="18" text-anchor="middle" fill="#1a1a1a">W</text></svg>';
 
   document.getElementById('wurf-avatar-header').innerHTML = WURF_MD;
 
